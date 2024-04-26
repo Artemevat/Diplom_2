@@ -79,9 +79,10 @@ public class CreateOrderTest {
         orderSteps.checkAnswerWithoutIngredients(responseCreateAuth);
     }
 
+    @Test
     @DisplayName("Create order without token, with incorrect hash")
     @Description("Create order, check error")
-    public void createOderNonAuthWithWrongHashInternalServerError() {
+    public void createOrderWithoutTokenWithIncorrectHashError() {
         order = new Order(List.of(INCORRECT_INGREDIENT));
         ValidatableResponse responseCreateAuth = orderSteps.createOrderWithoutToken(order);
         orderSteps.checkAnswerWithIncorrectHash(responseCreateAuth);
